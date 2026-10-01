@@ -4303,7 +4303,8 @@ body {
 }
 
 .world-container {
-    width: min(980px, 100%);
+    width: 100%;
+    height: 100%;
 }
 
 .world-hud {
