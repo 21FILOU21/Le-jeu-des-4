@@ -559,6 +559,32 @@ function hideWorldDialogue() {
     clearTimeout(overworldState.dialogueTimer);
 }
 
+function isWorldOptionsMenuOpen() {
+    const menu = document.getElementById("world-options-menu");
+    return !!(menu && !menu.classList.contains("hidden"));
+}
+
+function closeWorldOptionsMenu() {
+    const menu = document.getElementById("world-options-menu");
+    if (menu) menu.classList.add("hidden");
+}
+
+function toggleWorldOptionsMenu() {
+    if (isWorldOptionsMenuOpen()) closeWorldOptionsMenu();
+    else openWorldOptionsMenu();
+}
+
+function openWorldOptionsMenu() {
+    if (!isWorldScreenActive()) return;
+    if (typeof closeAttackModal === "function") closeAttackModal();
+    if (typeof closeSaveMenu === "function") closeSaveMenu();
+    if (typeof closeSettingsMenu === "function") closeSettingsMenu();
+    if (typeof closeDevMenu === "function") closeDevMenu();
+
+    const menu = document.getElementById("world-options-menu");
+    if (menu) menu.classList.remove("hidden");
+}
+
 /* ============================================================
    HUD
 ============================================================ */
@@ -700,13 +726,46 @@ const WORLD_KEY_DIRECTIONS = {
 
 function bindWorldEvents() {
     document.addEventListener("keydown", (event) => {
-        const tag = (event.target && event.target.tagName) || ""; if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return; if (typeof isInventoryOpen === "function" && isInventoryOpen()) return; if (typeof isKeybindCaptureActive === "function" && isKeybindCaptureActive()) { if (event.key.startsWith("Arrow")) { event.preventDefault() } return }
-        const keyName = String(event.key || "").toLowerCase(); let action = null; if (typeof getKeyAction === "function") { action = getKeyAction(keyName) } else { action = WORLD_KEY_DIRECTIONS[keyName] || null }
-        if (action === "fastWalk") { overworldState.fastWalkHeld = !0; return }
-        if (action === "action5") { if (typeof openInventoryModal === "function") openInventoryModal("world"); return; }
-        if (action === "interact") { if (typeof mapEditorInteract === "function") mapEditorInteract(); return; }
-        if (action !== "up" && action !== "down" && action !== "left" && action !== "right") return; overworldState.keys.add(keyName); if (event.key.startsWith("Arrow")) { event.preventDefault() }
-        if (!event.repeat) { requestWorldStep(action) }
+        const tag = (event.target && event.target.tagName) || "";
+        if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+        if (typeof isKeybindCaptureActive === "function" && isKeybindCaptureActive()) return;
+
+        const keyName = String(event.key || "").toLowerCase();
+        let action = null;
+        if (typeof getKeyAction === "function") {
+            action = getKeyAction(keyName);
+        } else {
+            action = WORLD_KEY_DIRECTIONS[keyName] || null;
+        }
+
+        if (action === "confirm") {
+            event.preventDefault();
+            if (typeof toggleWorldOptionsMenu === "function") toggleWorldOptionsMenu();
+            return;
+        }
+
+        if (typeof isInventoryOpen === "function" && isInventoryOpen()) return;
+
+        if (action === "fastWalk") {
+            overworldState.fastWalkHeld = !0;
+            return;
+        }
+
+        if (action === "action5") {
+            if (typeof openInventoryModal === "function") openInventoryModal("world");
+            return;
+        }
+
+        if (action === "interact") {
+            if (typeof mapEditorInteract === "function") mapEditorInteract();
+            return;
+        }
+
+        if (action !== "up" && action !== "down" && action !== "left" && action !== "right") return;
+
+        overworldState.keys.add(keyName);
+        if (event.key.startsWith("Arrow")) event.preventDefault();
+        if (!event.repeat) requestWorldStep(action);
     }); document.addEventListener("keyup", (event) => {
         const keyName = String(event.key || "").toLowerCase(); let action = null; if (typeof getKeyAction === "function") { action = getKeyAction(keyName) } else { action = WORLD_KEY_DIRECTIONS[keyName] || null }
         if (action === "fastWalk") { overworldState.fastWalkHeld = !1; return }
