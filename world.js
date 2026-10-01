@@ -869,6 +869,11 @@ function bindWorldEvents() {
 
     bindButton("world-option-player", openWorldPlayerStats);
 
+    bindButton("world-option-creatures", () => {
+        closeWorldOptionsMenu();
+        if (typeof openCreaturesMenu === "function") openCreaturesMenu();
+    });
+
     bindButton("world-option-settings", () => {
         closeWorldOptionsMenu();
         if (typeof openSettingsMenu === "function") openSettingsMenu();
