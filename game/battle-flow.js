@@ -92,7 +92,6 @@ function bindEvents() {
     $("#close-item-modal").addEventListener("click", closeItemModal);
     $("#inventory-close-footer").addEventListener("click", closeItemModal);
 
-    $("#clear-log-btn").addEventListener("click", clearLog);
 
     $("#restart-btn").addEventListener("click", restartGame);
 
