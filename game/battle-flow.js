@@ -619,6 +619,9 @@ function startBattle(request = null) {
     state.megaEvolutionBaseHeroId = null;
 
     state.log = [];
+    state.battleAnimals = [];
+    state.animalActiveEffects = [];
+    state.selectedAnimalId = null;
 
     showScreen("battle");
 
@@ -629,6 +632,8 @@ function startBattle(request = null) {
     addLog(`Le combat commence contre ${state.config.monsterName}.`, "system");
 
     addLog(`${state.hero.Nom} entre dans le combat.`, "system");
+
+    if (typeof startAnimalEncounter === "function") startAnimalEncounter();
 
     updateActionButtons();
 }
