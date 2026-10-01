@@ -78,7 +78,7 @@ function createEmptyContenu() {
         EffetsVisuels: [],
         Items: [],
         Animaux: [],
-        AnimauxConfig: { Raretes: structuredClone(ANIMAL_RARITY_WEIGHTS) },
+        AnimauxConfig: { Raretes: { Commun: 70, Rare: 20, "Épique": 8, "Mythique": 2 } },
         suppressions: {
             Personnages: [],
             Attaques: [],
@@ -108,7 +108,7 @@ function normalizeContenuData(data) {
         if (!Array.isArray(data[key])) data[key] = [];
     });
 
-    if (!data.AnimauxConfig || typeof data.AnimauxConfig !== "object") data.AnimauxConfig = { Raretes: structuredClone(ANIMAL_RARITY_WEIGHTS) };
+    if (!data.AnimauxConfig || typeof data.AnimauxConfig !== "object") data.AnimauxConfig = { Raretes: { Commun: 70, Rare: 20, "Épique": 8, "Mythique": 2 } };
     if (!data.suppressions || typeof data.suppressions !== "object" || Array.isArray(data.suppressions)) data.suppressions = {};
 
     ["Personnages", "Attaques", "Effets", "Energies", "Statuts", "EffetsVisuels", "Items", "Animaux"].forEach(key => {
