@@ -273,6 +273,10 @@ function startCreatorForm(type, existing) {
             startAnimalCreator(existing);
 
             break;
+        case "Animaux":
+            startAnimalCreator(existing);
+
+            break;
     }
 }
 
@@ -300,6 +304,8 @@ function getDevObjectSummary(type, obj) {
             return getVfxSummary(obj);
         case "Items":
             return `${obj.Categorie || "Autre"} · ${(obj.Effets || []).length} effet(s) · Qté max ${obj.QuantiteMax || 999}${obj.MegaStone ? " · Méga Stone" : ""}`;
+        case "Animaux":
+            return `${obj.Rarete || "Commun"} · Vie ${obj.Vie || 0} · ${obj.TypeBuff || "Aucun"} / ${obj.TypeDebuff || "Aucun"}`;
         case "Animaux":
             return `${obj.Rarete || "Commun"} · Vie ${obj.Vie || 0} · ${obj.TypeBuff || "Aucun"} / ${obj.TypeDebuff || "Aucun"}`;
         default:
