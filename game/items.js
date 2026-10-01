@@ -269,6 +269,23 @@ function canUseItem(item, context = "battle") {
         return { ok: !1, reason: "Cet item ne peut pas être utilisé hors combat." };
     }
 
+    if (item.Categorie === "Attraper" && typeof canCaptureAnimalItem === "function") return canCaptureAnimalItem(item, context);
+
+    if (item.Categorie === "Attraper" && typeof captureBattleAnimal === "function") {
+        const result = captureBattleAnimal(item);
+        if (result.ok) {
+            consumeItem(item.Id);
+            renderInventoryModal();
+            updateBattleUI();
+            if (context === "battle") {
+                state.busy = !1;
+                state.turn = "monster";
+                if (!state.battleOver) await monsterTurn();
+            }
+        }
+        return;
+    }
+
     if (isMegaStoneItem(item)) {
         if (context !== "battle") return { ok: !1, reason: "La Méga Stone s'utilise pendant un combat." };
 
