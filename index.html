@@ -181,10 +181,34 @@
         ====================================================== -->
         <section id="world-screen" class="screen">
             <div class="world-container">
-                <div class="world-hud">
-                    <span class="eyebrow">Exploration</span>
-                    <p>Utilise les flèches ou WASD pour vous déplacer dans les hautes herbes.</p>
-                    <button id="inventory-world-btn" class="secondary-button" type="button">🎒 Inventaire</button>
+                
+                <div id="world-options-menu" class="world-options-menu hidden" aria-modal="true" role="dialog" aria-label="Menu des options">
+                    <div class="world-options-content">
+                        <div class="world-options-header">
+                            <span class="eyebrow">MENU</span>
+                            <h2>Options</h2>
+                            <p>Entrée pour ouvrir ou fermer ce menu.</p>
+                        </div>
+                        <div class="world-options-list">
+                            <button id="world-option-inventory" class="secondary-button" type="button">Inventaire</button>
+                            <button id="world-option-player" class="secondary-button" type="button">Player</button>
+                            <button id="world-option-settings" class="secondary-button" type="button">Paramètres</button>
+                            <button id="world-option-save" class="secondary-button" type="button">Sauvegarde</button>
+                            <button id="world-option-creator" class="secondary-button" type="button">Dernier créateur</button>
+                        </div>
+                        <button id="world-options-close" class="secondary-button" type="button">Fermer</button>
+                    </div>
+                </div>
+
+                <div id="world-player-stats" class="world-player-stats hidden" aria-modal="true" role="dialog" aria-label="Statistiques du personnage">
+                    <div class="world-player-stats-content">
+                        <div class="world-options-header">
+                            <span class="eyebrow">PLAYER</span>
+                            <h2>Statistiques du personnage</h2>
+                        </div>
+                        <div id="world-player-stats-body"></div>
+                        <button id="world-player-stats-close" class="secondary-button" type="button">Retour</button>
+                    </div>
                 </div>
 
                 <div class="canvas-wrapper">
