@@ -635,6 +635,8 @@ function startBattle(request = null) {
 
     if (typeof startAnimalEncounter === "function") startAnimalEncounter();
 
+    if (typeof startAnimalEncounter === "function") startAnimalEncounter();
+
     updateActionButtons();
 }
 
