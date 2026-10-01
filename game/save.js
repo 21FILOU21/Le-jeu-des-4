@@ -108,6 +108,7 @@ function normalizeContenuData(data) {
         if (!Array.isArray(data[key])) data[key] = [];
     });
 
+    if (!data.AnimauxConfig || typeof data.AnimauxConfig !== "object") data.AnimauxConfig = { Raretes: structuredClone(ANIMAL_RARITY_WEIGHTS) };
     if (!data.suppressions || typeof data.suppressions !== "object" || Array.isArray(data.suppressions)) data.suppressions = {};
 
     ["Personnages", "Attaques", "Effets", "Energies", "Statuts", "EffetsVisuels", "Items", "Animaux"].forEach(key => {
