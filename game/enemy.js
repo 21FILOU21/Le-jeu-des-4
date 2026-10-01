@@ -622,6 +622,7 @@ async function monsterTurn() {
         await processTimedEffects(monster);
 
         if (state.battleOver || monster.hp <= 0 || state.playerHp <= 0) continue;
+        if (typeof isAnimalTurnBlocked === "function" && isAnimalTurnBlocked(monster)) { addLog(monster.name + " est incapable d'agir.", "system"); continue; }
 
         const hpPercent = calculateHealthPercentage(monster.hp, monster.maxHp);
 
