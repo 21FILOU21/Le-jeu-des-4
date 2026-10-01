@@ -361,20 +361,46 @@ function getAnimalDisplayValue(instance, kind) {
 function renderAnimalBattleSlots() {
     const container = document.getElementById("combat-log");
     if (!container) return;
+
     const animals = Array.isArray(state.battleAnimals) ? state.battleAnimals.slice(0, 6) : [];
+
     container.classList.add("animal-slots");
+    container.setAttribute("aria-label", "Animaux en combat");
     container.innerHTML = "";
+
     for (let i = 0; i < 6; i++) {
         const animal = animals[i];
         const slot = document.createElement("article");
         slot.className = "animal-battle-slot" + (animal ? "" : " empty");
+
         if (animal) {
-            const a = animal.definition;
-            slot.innerHTML = '<div class="animal-slot-art">' + (a.Image ? '<img src="' + escapeHtml(a.Image) + '" alt="">' : '🐾') + '</div><div class="animal-slot-info"><strong>' + escapeHtml(a.Nom) + '</strong><span>Niv. ' + animal.level + '</span><small>' + escapeHtml(a.Rarete) + (animal.cooldown > 0 ? ' · CD ' + animal.cooldown : '') + '</small></div>';
-            slot.addEventListener("click", () => { state.selectedAnimalId = animal.id; });
+            const definition = animal.definition || {};
+            const image = definition.Image
+                ? '<img src="' + escapeHtml(definition.Image) + '" alt="' + escapeHtml(definition.Nom || "Animal") + '">'
+                : '<span class="animal-slot-placeholder">🐾</span>';
+
+            slot.innerHTML =
+                '<div class="animal-slot-image">' + image + '</div>' +
+                '<div class="animal-slot-footer">' +
+                    '<strong>' + escapeHtml(definition.Nom || "Animal") + '</strong>' +
+                    '<span>' + escapeHtml(definition.Rarete || "Commun") + '</span>' +
+                '</div>';
+
+            slot.addEventListener("click", () => {
+                state.selectedAnimalId = animal.id;
+                renderAnimalBattleSlots();
+            });
         } else {
-            slot.innerHTML = '<div class="animal-slot-art">＋</div><div class="animal-slot-info"><span>Emplacement vide</span></div>';
+            slot.innerHTML =
+                '<div class="animal-slot-image">' +
+                    '<span class="animal-slot-placeholder">＋</span>' +
+                '</div>' +
+                '<div class="animal-slot-footer">' +
+                    '<strong>Emplacement vide</strong>' +
+                    '<span>—</span>' +
+                '</div>';
         }
+
         container.appendChild(slot);
     }
 }
