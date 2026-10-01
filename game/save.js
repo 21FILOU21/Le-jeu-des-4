@@ -77,6 +77,8 @@ function createEmptyContenu() {
         Statuts: [],
         EffetsVisuels: [],
         Items: [],
+        Animaux: [],
+        AnimauxConfig: { Raretes: structuredClone(ANIMAL_RARITY_WEIGHTS) },
         suppressions: {
             Personnages: [],
             Attaques: [],
@@ -102,7 +104,7 @@ function createEmptySaveFile() {
 function normalizeContenuData(data) {
     if (!data || typeof data !== "object" || Array.isArray(data)) data = createEmptyContenu();
 
-    ["Personnages", "Monstres", "Attaques", "Effets", "Energies", "Statuts", "EffetsVisuels", "Items"].forEach(key => {
+    ["Personnages", "Monstres", "Attaques", "Effets", "Energies", "Statuts", "EffetsVisuels", "Items", "Animaux"].forEach(key => {
         if (!Array.isArray(data[key])) data[key] = [];
     });
 
