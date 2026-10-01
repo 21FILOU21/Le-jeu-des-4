@@ -546,6 +546,19 @@
       "Utilisable": false,
       "UtilisableHorsCombat": false,
       "Consommable": false
+    },
+    {
+      "Id": "attraper",
+      "Nom": "Attraper",
+      "Description": "Objet consommable permettant de capturer un animal pendant un combat.",
+      "Image": "",
+      "Categorie": "Attraper",
+      "Valeur": 10,
+      "Effets": [],
+      "QuantiteMax": 999,
+      "Utilisable": true,
+      "UtilisableHorsCombat": false,
+      "Consommable": true
     }
   ]
 }
