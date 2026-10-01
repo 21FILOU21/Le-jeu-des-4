@@ -932,6 +932,91 @@ button:disabled {
     font-size: 0.65rem;
 }
 
+.combat-log.animal-slots {
+    height: 100px;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 8px;
+    overflow: hidden;
+}
+
+.animal-battle-slot {
+    min-width: 0;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.animal-battle-slot.empty {
+    opacity: 0.55;
+    cursor: default;
+}
+
+.animal-slot-image {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.animal-slot-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.animal-slot-placeholder {
+    font-size: 1.6rem;
+    color: var(--muted);
+}
+
+.animal-slot-footer {
+    flex: 0 0 auto;
+    padding: 5px 6px 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--panel);
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+.animal-slot-footer strong {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.68rem;
+}
+
+.animal-slot-footer span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--muted);
+    font-size: 0.58rem;
+}
+
+@media (max-width: 900px) {
+    .combat-log.animal-slots {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        height: 208px;
+    }
+}
+
+@media (max-width: 520px) {
+    .combat-log.animal-slots {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        height: 316px;
+    }
+}
+
 .combat-log {
     height: 100px;
     overflow-y: auto;
