@@ -160,6 +160,7 @@ function bindEvents() {
 
     $("#dev-cat-vfx").addEventListener("click", () => showDevCategoryMenu("EffetsVisuels"));
     $("#dev-cat-items").addEventListener("click", () => showDevCategoryMenu("Items"));
+    $("#dev-cat-animaux").addEventListener("click", () => showDevCategoryMenu("Animaux"));
 
     $("#dev-image-input").addEventListener("change", handleDevImageSelected);
 
