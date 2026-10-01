@@ -274,7 +274,7 @@ function canUseItem(item, context = "battle") {
     if (item.Categorie === "Attraper" && typeof captureBattleAnimal === "function") {
         const result = captureBattleAnimal(item);
         if (result.ok) {
-            consumeItem(item.Id);
+            removeItemFromInventory(item.Id, 1);
             renderInventoryModal();
             updateBattleUI();
             if (context === "battle") {
