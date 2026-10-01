@@ -307,7 +307,11 @@ function bindEvents() {
         if (action === "confirm") {
             event.preventDefault();
 
-            toggleSaveMenu();
+            if (screens.world && screens.world.classList.contains("active")) {
+                if (typeof toggleWorldOptionsMenu === "function") toggleWorldOptionsMenu();
+            } else {
+                toggleSaveMenu();
+            }
 
             return;
         }
