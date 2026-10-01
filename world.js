@@ -463,7 +463,7 @@ function isWorldScreenActive() {
     return !!(screen && screen.classList.contains("active"));
 }
 
-function isOverworldBlocked() { const saveMenu = document.getElementById("save-menu"); const filesMenu = document.getElementById("save-files-menu"); const devMenu = document.getElementById("dev-menu"); const settingsMenu = document.getElementById("settings-menu"); if (saveMenu && !saveMenu.classList.contains("hidden")) return !0; if (filesMenu && !filesMenu.classList.contains("hidden")) return !0; if (devMenu && !devMenu.classList.contains("hidden")) return !0; if (settingsMenu && !settingsMenu.classList.contains("hidden")) return !0; return !1 }
+function isOverworldBlocked() { const saveMenu = document.getElementById("save-menu"); const filesMenu = document.getElementById("save-files-menu"); const devMenu = document.getElementById("dev-menu"); const settingsMenu = document.getElementById("settings-menu"); const worldOptions = document.getElementById("world-options-menu"); const playerStats = document.getElementById("world-player-stats"); if (saveMenu && !saveMenu.classList.contains("hidden")) return !0; if (filesMenu && !filesMenu.classList.contains("hidden")) return !0; if (devMenu && !devMenu.classList.contains("hidden")) return !0; if (settingsMenu && !settingsMenu.classList.contains("hidden")) return !0; if (worldOptions && !worldOptions.classList.contains("hidden")) return !0; if (playerStats && !playerStats.classList.contains("hidden")) return !0; return !1 }
 
 function overworldLoop(timestamp) {
     const deltaTime = Math.min(0.05, (timestamp - overworldState.lastFrameTime) / 1000 || 0);
@@ -793,6 +793,7 @@ function bindWorldEvents() {
         if (action === "confirm") {
             event.preventDefault();
             if (typeof toggleWorldOptionsMenu === "function") toggleWorldOptionsMenu();
+            event.stopImmediatePropagation();
             return;
         }
 
@@ -805,6 +806,14 @@ function bindWorldEvents() {
 
         if (action === "action5") {
             if (typeof openInventoryModal === "function") openInventoryModal("world");
+            return;
+        }
+
+        if (action === "cancel" && isWorldOptionsMenuOpen()) {
+            event.preventDefault();
+            closeWorldOptionsMenu();
+            closeWorldPlayerStats();
+            event.stopImmediatePropagation();
             return;
         }
 
@@ -846,4 +855,42 @@ function bindWorldEvents() {
     worldMapCanvas = buildWorldMapCanvas();
 
     bindWorldEvents();
+
+    const bindButton = (id, handler) => {
+        const button = document.getElementById(id);
+        if (button) button.addEventListener("click", handler);
+    };
+
+    bindButton("world-option-inventory", () => {
+        closeWorldOptionsMenu();
+        if (typeof openInventoryModal === "function") openInventoryModal("world");
+    });
+
+    bindButton("world-option-player", openWorldPlayerStats);
+
+    bindButton("world-option-settings", () => {
+        closeWorldOptionsMenu();
+        if (typeof openSettingsMenu === "function") openSettingsMenu();
+    });
+
+    bindButton("world-option-save", () => {
+        closeWorldOptionsMenu();
+        if (typeof openSaveMenu === "function") openSaveMenu();
+    });
+
+    bindButton("world-option-creator", () => {
+        closeWorldOptionsMenu();
+        if (typeof openDevMenu === "function") openDevMenu();
+    });
+
+    bindButton("world-options-close", closeWorldOptionsMenu);
+    bindButton("world-player-stats-close", closeWorldPlayerStats);
+
+    document.getElementById("world-options-menu")?.addEventListener("click", event => {
+        if (event.target.id === "world-options-menu") closeWorldOptionsMenu();
+    });
+
+    document.getElementById("world-player-stats")?.addEventListener("click", event => {
+        if (event.target.id === "world-player-stats") closeWorldPlayerStats();
+    });
 })();
