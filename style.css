@@ -866,9 +866,9 @@ button:disabled {
     width: min(1600px, 100%);
     margin: 0 auto;
 
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     padding-bottom: 20px;
 }
@@ -933,7 +933,9 @@ button:disabled {
 }
 
 .combat-log.animal-slots {
+    width: min(900px, 100%);
     height: 100px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 8px;
