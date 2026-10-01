@@ -609,8 +609,9 @@ function renderWorldPlayerStats() {
         })
         .join("");
 
+    const progressionState = typeof globalState !== "undefined" && globalState ? globalState : null;
     const derived = [
-        ["Niveau", String(globalState?.playerLevel ?? state.playerLevel ?? 1)],
+        ["Niveau", String(progressionState?.playerLevel ?? state.playerLevel ?? 1)],
         ["PV actuels", String(state.playerHp ?? 0)],
         ["PV maximum", String(state.playerMaxHp ?? hero.Vie ?? 0)],
         ["Énergie actuelle", String(state.playerEnergy ?? 0)],
@@ -618,8 +619,8 @@ function renderWorldPlayerStats() {
         ["Puissance effective", String(typeof getPlayerPower === "function" ? getPlayerPower() : hero.PuissanceBase ?? 0)],
         ["Armure effective", String(typeof getPlayerArmor === "function" ? getPlayerArmor() : hero.Armure ?? 0)],
         ["Vitesse effective", String(typeof getPlayerSpeed === "function" ? getPlayerSpeed() : hero.Vitesse ?? 0)],
-        ["XP", String(globalState?.playerXp ?? state.playerXp ?? 0)],
-        ["XP avant niveau suivant", String(globalState?.playerXpToNext ?? state.playerXpToNext ?? 0)]
+        ["XP", String(progressionState?.playerXp ?? state.playerXp ?? 0)],
+        ["XP avant niveau suivant", String(progressionState?.playerXpToNext ?? state.playerXpToNext ?? 0)]
     ];
 
     const derivedHtml = derived.map(([label, value]) =>
