@@ -90,6 +90,8 @@ function normalizeContenu(contenu) {
 
     if (typeof normalizeAnimauxConfig === "function") normalizeAnimauxConfig(contenu);
 
+    if (typeof normalizeAnimauxConfig === "function") normalizeAnimauxConfig(contenu);
+
     contenu.Effets.forEach((effect, index) => {
         if (!effect || typeof effect !== "object") return;
         if (!String(effect.Id || "").trim()) {
