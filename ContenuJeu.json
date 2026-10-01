@@ -83,6 +83,108 @@
         "La baguette d'or",
         "La baguette dunk"
       ]
+    },
+    {
+      "Nom": "Shaunsank",
+      "TypeEnergie": "Mana",
+      "TypeEnergie2": "",
+      "Rarete": "Rare",
+      "VisibleSelection": false,
+      "PuissanceBase": 2.5,
+      "Vie": 110,
+      "Armure": 2,
+      "MinRoulette": 5,
+      "MaxRoulette": 9,
+      "NombreRoulette": 4,
+      "MinEnergie": 0,
+      "MaxEnergie": 100,
+      "Vitesse": 0,
+      "Image": "assets/personnages/Shaunsank.png",
+      "Attaques": [
+        "Parole de Viénoiseries",
+        "C'est parti pour ta branlée",
+        "La baguette gun",
+        "Glaze des potes de la baguette (KOBE)"
+      ],
+      "Evolution": {
+        "Cible": "Rao-Shaun",
+        "NiveauRequis": 7
+      }
+    },
+    {
+      "Nom": "Rao-Shaun",
+      "TypeEnergie": "Mana",
+      "TypeEnergie2": "Aura",
+      "Rarete": "Légendaire",
+      "VisibleSelection": false,
+      "PuissanceBase": 3.5,
+      "Vie": 125,
+      "Armure": 3,
+      "MinRoulette": 7,
+      "MaxRoulette": 11,
+      "NombreRoulette": 6,
+      "MinEnergie": 0,
+      "MaxEnergie": 150,
+      "Vitesse": 0,
+      "Image": "assets/personnages/Rao-Shaun.png",
+      "Attaques": [
+        "LA PEAK BAGUETTE",
+        "Le vrai buzzer!",
+        "Dieu du 3 points",
+        "Jugement du tir des mortels !"
+      ],
+      "Evolution": null
+    },
+    {
+      "Nom": "Willoalthères",
+      "TypeEnergie": "Ki",
+      "TypeEnergie2": "",
+      "Rarete": "Rare",
+      "VisibleSelection": false,
+      "PuissanceBase": 4,
+      "Vie": 100,
+      "Armure": 4,
+      "MinRoulette": 0,
+      "MaxRoulette": 15,
+      "NombreRoulette": 2,
+      "MinEnergie": 5,
+      "MaxEnergie": 75,
+      "Vitesse": 0,
+      "Image": "assets/personnages/Willoalthères.png",
+      "Attaques": [
+        "Force du tonnère",
+        "Coup de poing",
+        "Ancien temps",
+        "Abdo en béton"
+      ],
+      "Evolution": {
+        "Cible": "BhuddaBuilder-Champagne",
+        "NiveauRequis": 5
+      }
+    },
+    {
+      "Nom": "BhuddaBuilder-Champagne",
+      "TypeEnergie": "Ki",
+      "TypeEnergie2": "Aura",
+      "Rarete": "Légendaire",
+      "VisibleSelection": false,
+      "PuissanceBase": 5,
+      "Vie": 120,
+      "Armure": 5,
+      "MinRoulette": 0,
+      "MaxRoulette": 17,
+      "NombreRoulette": 2,
+      "MinEnergie": 0,
+      "MaxEnergie": 90,
+      "Vitesse": 0,
+      "Image": "assets/personnages/BhuddaBuilder-Champagne.png",
+      "Attaques": [
+        "Lions dieux du soleil",
+        "Malédiction du moine",
+        "Recharge Divine",
+        "Bouclier impénetrable"
+      ],
+      "Evolution": null
     }
   ],
   "Attaques": [
@@ -425,6 +527,413 @@
         }
       ],
       "Statuts": []
+    },
+    {
+      "Nom": "Lions dieux du soleil",
+      "Description": "{HERO} tir des lions dieux du soleil tout droit sorties de son anus, pénetrent les ennemies déstabilisé.",
+      "Personnage": "BhuddaBuilder-Champagne",
+      "TypeEnergie": "Ki",
+      "CoutEnergie": 35,
+      "Effets": [
+        {
+          "Nom": "Dégats sois même",
+          "Type": "Degats",
+          "Valeur": 0.01,
+          "Cible": "Joueur",
+          "Tours": 1
+        },
+        {
+          "Nom": "x4 dégats ennemies",
+          "Type": "Degats",
+          "Valeur": 4,
+          "Cible": "Tous les ennemis",
+          "Tours": 1
+        }
+      ],
+      "Statuts": []
+    },
+    {
+      "Nom": "Malédiction du moine",
+      "Description": "{HERO} par son incroyable intelligence developper après avoir vécu des centaines de millions d'années sur cette terre. il créea une malédiction incurrable mortelle.",
+      "Personnage": "BhuddaBuilder-Champagne",
+      "TypeEnergie": "Mana",
+      "CoutEnergie": 75,
+      "Effets": [
+        {
+          "Nom": "Débuff de puissance infinie -6",
+          "Type": "Debuff de puissance",
+          "Valeur": 6,
+          "Cible": "Tous les ennemis",
+          "Tours": 999999
+        },
+        {
+          "Nom": "Brûlure infinie 1500 dégats",
+          "Type": "Brûlure",
+          "Valeur": 1500,
+          "Cible": "Tous les ennemis",
+          "Tours": 999999
+        },
+        {
+          "Nom": "Réduction d'armure infinie -50",
+          "Type": "Réduire l'armure",
+          "Valeur": 50,
+          "Cible": "Tous les ennemis",
+          "Tours": 999999
+        },
+        {
+          "Nom": "Attaque tout les ennemis",
+          "Type": "Degats",
+          "Valeur": 1,
+          "Cible": "Tous les ennemis",
+          "Tours": 1
+        }
+      ],
+      "Statuts": []
+    },
+    {
+      "Nom": "Recharge Divine",
+      "Description": "{HERO} se concentre le plus possible et recharge son énergie",
+      "Personnage": "BhuddaBuilder-Champagne",
+      "TypeEnergie": "Ki",
+      "CoutEnergie": 0,
+      "Effets": [
+        {
+          "Nom": "Recharger 20 énergie",
+          "Type": "Recharger l'énergie",
+          "Valeur": 20,
+          "Cible": "Joueur",
+          "Tours": 1
+        }
+      ],
+      "Statuts": []
+    },
+    {
+      "Nom": "Bouclier impénetrable",
+      "Description": "{HERO} érige une barrière divine absolue. Pendant toute sa durée, aucun assaut ne peut la traverser : chaque coup porté est instantanément annulé, et la force de l'attaque est amplifiée avant d'être violemment renvoyée contre l'agresseur, lui infligeant 50 % des dégâts d'origine.",
+      "Personnage": "BhuddaBuilder-Champagne",
+      "TypeEnergie": "Aura",
+      "CoutEnergie": 50,
+      "Effets": [
+        {
+          "Nom": "Bouclier impénétrable",
+          "Type": "Augmenter l'armure",
+          "Valeur": 999999,
+          "Cible": "Joueur",
+          "Tours": 3
+        }
+      ],
+      "Statuts": [
+        {
+          "Nom": "Reflet de dégat 100% 3 tours",
+          "TypeStatut": "ContreAttaque",
+          "ChanceApplication": 100,
+          "DureeTours": 3,
+          "ChanceDeclenchement": 100,
+          "PourcentageRiposte": 50
+        }
+      ]
+    },
+    {
+      "Nom": "Force du tonnère",
+      "Description": "{HERO} embélis sa force maximale rapidement, il se détruit les muscles.",
+      "Personnage": "Willoalthères",
+      "TypeEnergie": "Ki",
+      "CoutEnergie": 15,
+      "Effets": [
+        {
+          "Nom": "Buff de dégat Joueur x2 3 tours",
+          "Type": "Buff de puissance",
+          "Valeur": 2,
+          "Cible": "Joueur",
+          "Tours": 3
+        },
+        {
+          "Nom": "Dégats sois même",
+          "Type": "Degats",
+          "Valeur": 0.01,
+          "Cible": "Joueur",
+          "Tours": 1
+        }
+      ],
+      "Statuts": []
+    },
+    {
+      "Nom": "Coup de poing",
+      "Description": "{HERO} s’élance et décoche un crochet gauche. Ce n’est pas un simple coup de poing mécanique ou académique ; c'est un assaut viscéral, une extension directe de sa rage et de sa détermination. La puissance brute du coup traverse l'air, connectant avec une force dévastatrice qui démonte complètement son adversaire, le laissant sans défense face à cette démonstration de puissance pure.",
+      "Personnage": "Willoalthères",
+      "TypeEnergie": "Mana",
+      "CoutEnergie": 5,
+      "Effets": [
+        {
+          "Nom": "x3 dégats ennemie",
+          "Type": "Degats",
+          "Valeur": 3,
+          "Cible": "Ennemi",
+          "Tours": 1
+        }
+      ],
+      "Statuts": []
+    },
+    {
+      "Nom": "Ancien temps",
+      "Description": "{HERO} explique que dans son temps tout était plus facile sans les internets et les appareils téléphones. L'ennemie perd totalement conscience oublie de se défendre.",
+      "Personnage": "Willoalthères",
+      "TypeEnergie": "Ki",
+      "CoutEnergie": 10,
+      "Effets": [
+        {
+          "Nom": "Réduction d'armure 5 3 tours ennemi",
+          "Type": "Réduire l'armure",
+          "Valeur": 5,
+          "Cible": "Ennemi",
+          "Tours": 3
+        }
+      ],
+      "Statuts": []
+    },
+    {
+      "Nom": "Abdo en béton",
+      "Description": "{HERO} avec ça musculature impressionante réduit grandement les dégats que les ennemis infligent.",
+      "Personnage": "Willoalthères",
+      "TypeEnergie": "Ki",
+      "CoutEnergie": 15,
+      "Effets": [
+        {
+          "Nom": "Armure +5 joueur 3 tours",
+          "Type": "Augmenter l'armure",
+          "Valeur": 5,
+          "Cible": "Joueur",
+          "Tours": 3
+        }
+      ],
+      "Statuts": []
+    },
+    {
+      "Nom": "Parole de Viénoiseries",
+      "Description": "{HERO} parle de toutes les sortes de viénoiseries de son pays ce qui met l'eau a la bouche de son ennemi et le fait bander de plaisir",
+      "Personnage": "Shaunsank",
+      "TypeEnergie": "Mana",
+      "CoutEnergie": 10,
+      "Effets": [
+        {
+          "Nom": "Réduction d'armure infinie -40",
+          "Type": "Réduire l'armure",
+          "Valeur": 40,
+          "Cible": "Ennemi",
+          "Tours": 999999
+        }
+      ],
+      "Statuts": [],
+      "NombreMaxCoups": 2
+    },
+    {
+      "Nom": "C'est parti pour ta branlée",
+      "Description": "{HERO} dis son crie de guerre et fonce sur son ennemi tout en préparant son prochain tir son 3 points dit FROM DEEP.",
+      "Personnage": "Shaunsank",
+      "TypeEnergie": "Mana",
+      "CoutEnergie": 15,
+      "Effets": [
+        {
+          "Nom": "Dégats",
+          "Type": "Degats",
+          "Valeur": 1,
+          "Cible": "Ennemi",
+          "Tours": 1
+        }
+      ],
+      "Statuts": []
+    },
+    {
+      "Nom": "La baguette gun",
+      "Description": "{HERO} sort une baguette normale, a l'activation une enbouchure special pour une balle trés speciale, surtout tranchante, cette balle prend l'apparence d'une baguette fait un ricohet qui frappera l'ennemi dans l'anus le prépuce et les yeux.",
+      "Personnage": "Shaunsank",
+      "TypeEnergie": "Mana",
+      "CoutEnergie": 20,
+      "Effets": [
+        {
+          "Nom": "Dégats",
+          "Type": "Degats",
+          "Valeur": 1,
+          "Cible": "Ennemi",
+          "Tours": 1
+        },
+        {
+          "Nom": "Saignement 5 3 tours",
+          "Type": "Brûlure",
+          "Valeur": 5,
+          "Cible": "Ennemi",
+          "Tours": 3
+        },
+        {
+          "Nom": "Brûlure infinie 750 dégats",
+          "Type": "Brûlure",
+          "Valeur": 750,
+          "Cible": "Ennemi",
+          "Tours": 999999
+        }
+      ],
+      "Statuts": [],
+      "TypeEnergie2": "Ki"
+    },
+    {
+      "Nom": "Glaze des potes de la baguette (KOBE)",
+      "Description": "Les amis de {HERO} le glaze et ca le booste a un tel point que meme le commun des mortels ne peut plus voir son ego, rattrapera-t-il yrone ? Personne ne le sait mais ce qui est sur c'est que ce glaze le rend...invincible.",
+      "Personnage": "Shaunsank",
+      "TypeEnergie": "Mana",
+      "CoutEnergie": 10,
+      "Effets": [
+        {
+          "Nom": "Buff de puissance de fou",
+          "Type": "Buff de puissance",
+          "Valeur": 6,
+          "Cible": "Joueur",
+          "Tours": 1
+        }
+      ],
+      "Statuts": [],
+      "NombreMaxCoups": 3
+    },
+    {
+      "Nom": "LA PEAK BAGUETTE",
+      "Description": "{HERO} brandit son énorme baguette et frappe le sol avec ce qui crée un trmblement de terre qui fait 3 fois le tour de la planéte et revient pour re-frapper l'ennemi et lui faire des degats a l'infini et pendant ce temps, {HERO} shoot des 3 points en riant.",
+      "Personnage": "Rao-Shaun",
+      "TypeEnergie": "Mana",
+      "CoutEnergie": 100,
+      "Effets": [
+        {
+          "Nom": "La baguette dunk",
+          "Type": "Degats",
+          "Valeur": 30,
+          "Cible": "ennemy",
+          "Tours": 1
+        },
+        {
+          "Nom": "Buff de puissance de fou",
+          "Type": "Buff de puissance",
+          "Valeur": 6,
+          "Cible": "Joueur",
+          "Tours": 1
+        },
+        {
+          "Nom": "Débuff de puissance infinie -6",
+          "Type": "Debuff de puissance",
+          "Valeur": 6,
+          "Cible": "Tous les ennemis",
+          "Tours": 999999
+        },
+        {
+          "Nom": "Réduction d'armure infinie -50",
+          "Type": "Réduire l'armure",
+          "Valeur": 50,
+          "Cible": "Tous les ennemis",
+          "Tours": 999999
+        }
+      ],
+      "Statuts": [],
+      "TypeEnergie2": "Aura"
+    },
+    {
+      "Nom": "Le vrai buzzer!",
+      "Description": "\"Impossible!\" dit le commentateur, {HERO} tir un game winner 75ft full court shot avec 0.42 secondes restantes. Se buzzer était magique et a permis de rendre {HERO} un peu plus connu, bref, en tout cas ce buzzer est le dieu des buzzers et godamn ca le boost !",
+      "Personnage": "Rao-Shaun",
+      "TypeEnergie": "Mana",
+      "CoutEnergie": 35,
+      "Effets": [
+        {
+          "Nom": "Soin x3",
+          "Type": "Soin",
+          "Valeur": 3,
+          "Cible": "Joueur",
+          "Tours": 1
+        },
+        {
+          "Nom": "Dégats x10 infini",
+          "Type": "Buff de puissance",
+          "Valeur": 10,
+          "Cible": "Joueur",
+          "Tours": 999999
+        },
+        {
+          "Nom": "Réduction d'armure infinie -50",
+          "Type": "Réduire l'armure",
+          "Valeur": 50,
+          "Cible": "Tous les ennemis",
+          "Tours": 999999
+        },
+        {
+          "Nom": "x2 dégats tous les ennemis",
+          "Type": "Degats",
+          "Valeur": 2,
+          "Cible": "Tous les ennemis",
+          "Tours": 1
+        },
+        {
+          "Nom": "X2 dégats",
+          "Type": "Degats",
+          "Valeur": 2,
+          "Cible": "Ennemi",
+          "Tours": 1
+        },
+        {
+          "Nom": "Attaque tout les ennemis",
+          "Type": "Degats",
+          "Valeur": 1,
+          "Cible": "Tous les ennemis",
+          "Tours": 1
+        }
+      ],
+      "Statuts": [],
+      "TypeEnergie2": "Aura",
+      "NombreMaxCoups": 2
+    },
+    {
+      "Nom": "Dieu du 3 points",
+      "Description": "{HERO} se rappelant qui il est vraiment il dépasse le chef lui même Curry. Son tir à deux mains, que l'on apprend maitenant dans toutes les écoles, rend le ballon si puissant et si rapide que l'espace-temps semble se déchirer rien qu'a son contact. L'ennemi ne peut plus voir tant d'aura et succombre et le ballon qui va plus vite que le rayonnement solaire finit le travail.",
+      "Personnage": "Rao-Shaun",
+      "TypeEnergie": "Mana",
+      "CoutEnergie": 30,
+      "Effets": [
+        {
+          "Nom": "Dégats touts .8x",
+          "Type": "Degats",
+          "Valeur": 0.8,
+          "Cible": "Tous les ennemis",
+          "Tours": 1
+        },
+        {
+          "Nom": "x3 dégats ennemie",
+          "Type": "Degats",
+          "Valeur": 3,
+          "Cible": "Ennemi",
+          "Tours": 1
+        },
+        {
+          "Nom": "Attaque tout les ennemis",
+          "Type": "Degats",
+          "Valeur": 1,
+          "Cible": "Tous les ennemis",
+          "Tours": 1
+        },
+        {
+          "Nom": "Brulure 100 5 tours",
+          "Type": "Brûlure",
+          "Valeur": 100,
+          "Cible": "Ennemi",
+          "Tours": 5
+        }
+      ],
+      "Statuts": [],
+      "TypeEnergie2": "Aura"
+    },
+    {
+      "Nom": "Jugement du tir des mortels !",
+      "Description": "{HERO} arrive et juge les tirs des humains et quand il y en a qui ne vas pas {HERO} dit tout simplement:\"Hmphh\". Ce qui rend l'ennemi jugé si bête et si nul que cet ennemi se sent comme un caca posé par un lapin oublié et mort sur l'autorute. Une merde quoi.",
+      "Personnage": "Rao-Shaun",
+      "TypeEnergie": "Mana",
+      "CoutEnergie": 60,
+      "Effets": [],
+      "Statuts": [],
+      "TypeEnergie2": "Aura"
     }
   ],
   "Effets": [
@@ -472,6 +981,160 @@
       "Tours": 1,
       "Id": "chatgpt-a-mon-back",
       "Description": ""
+    },
+    {
+      "Nom": "Saignement 5 3 tours",
+      "Type": "Brûlure",
+      "Valeur": 5,
+      "Cible": "Ennemi",
+      "Tours": 3
+    },
+    {
+      "Nom": "Réduction d'armure 5 3 tours ennemi",
+      "Type": "Réduire l'armure",
+      "Valeur": 5,
+      "Cible": "Ennemi",
+      "Tours": 3
+    },
+    {
+      "Nom": "Dégats sois même",
+      "Type": "Degats",
+      "Valeur": 0.01,
+      "Cible": "Joueur",
+      "Tours": 1
+    },
+    {
+      "Nom": "Attaque tout les ennemis",
+      "Type": "Degats",
+      "Valeur": 1,
+      "Cible": "Tous les ennemis",
+      "Tours": 1
+    },
+    {
+      "Nom": "X2 dégats",
+      "Type": "Degats",
+      "Valeur": 2,
+      "Cible": "Ennemi",
+      "Tours": 1
+    },
+    {
+      "Nom": "x2 dégats tous les ennemis",
+      "Type": "Degats",
+      "Valeur": 2,
+      "Cible": "Tous les ennemis",
+      "Tours": 1
+    },
+    {
+      "Nom": "Réduction d'armure infinie -40",
+      "Type": "Réduire l'armure",
+      "Valeur": 40,
+      "Cible": "Ennemi",
+      "Tours": 999999
+    },
+    {
+      "Nom": "Brûlure infinie 750 dégats",
+      "Type": "Brûlure",
+      "Valeur": 750,
+      "Cible": "Ennemi",
+      "Tours": 999999
+    },
+    {
+      "Nom": "x4 dégats ennemies",
+      "Type": "Degats",
+      "Valeur": 4,
+      "Cible": "Tous les ennemis",
+      "Tours": 1
+    },
+    {
+      "Nom": "Recharger 20 énergie",
+      "Type": "Recharger l'énergie",
+      "Valeur": 20,
+      "Cible": "Joueur",
+      "Tours": 1
+    },
+    {
+      "Nom": "Bouclier impénétrable",
+      "Type": "Augmenter l'armure",
+      "Valeur": 999999,
+      "Cible": "Joueur",
+      "Tours": 3
+    },
+    {
+      "Nom": "Buff de dégat Joueur x2 3 tours",
+      "Type": "Buff de puissance",
+      "Valeur": 2,
+      "Cible": "Joueur",
+      "Tours": 3
+    },
+    {
+      "Nom": "x3 dégats ennemie",
+      "Type": "Degats",
+      "Valeur": 3,
+      "Cible": "Ennemi",
+      "Tours": 1
+    },
+    {
+      "Nom": "Armure +5 joueur 3 tours",
+      "Type": "Augmenter l'armure",
+      "Valeur": 5,
+      "Cible": "Joueur",
+      "Tours": 3
+    },
+    {
+      "Nom": "Débuff de puissance infinie -6",
+      "Type": "Debuff de puissance",
+      "Valeur": 6,
+      "Cible": "Tous les ennemis",
+      "Tours": 999999
+    },
+    {
+      "Nom": "Réduction d'armure infinie -50",
+      "Type": "Réduire l'armure",
+      "Valeur": 50,
+      "Cible": "Tous les ennemis",
+      "Tours": 999999
+    },
+    {
+      "Nom": "Brûlure infinie 1500 dégats",
+      "Type": "Brûlure",
+      "Valeur": 1500,
+      "Cible": "Tous les ennemis",
+      "Tours": 999999
+    },
+    {
+      "Nom": "Dégats touts .8x",
+      "Type": "Degats",
+      "Valeur": 0.8,
+      "Cible": "Tous les ennemis",
+      "Tours": 1
+    },
+    {
+      "Nom": "Buff de puissance de fou",
+      "Type": "Buff de puissance",
+      "Valeur": 6,
+      "Cible": "Joueur",
+      "Tours": 1
+    },
+    {
+      "Nom": "Dégats x10 infini",
+      "Type": "Buff de puissance",
+      "Valeur": 10,
+      "Cible": "Joueur",
+      "Tours": 999999
+    },
+    {
+      "Nom": "Soin x3",
+      "Type": "Soin",
+      "Valeur": 3,
+      "Cible": "Joueur",
+      "Tours": 1
+    },
+    {
+      "Nom": "Brulure 100 5 tours",
+      "Type": "Brûlure",
+      "Valeur": 100,
+      "Cible": "Ennemi",
+      "Tours": 5
     }
   ],
   "Energies": [
