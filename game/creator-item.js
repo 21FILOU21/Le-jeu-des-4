@@ -38,7 +38,7 @@ function startItemCreator(existing) {
 
     const isEdit = Boolean(existing);
     const item = existing || {};
-    const categories = ["Soin", "Combat", "Évolution", "Méga Stone", "Exploration", "Clé", "Récompense", "Autre"];
+    const categories = ["Soin", "Combat", "Attraper", "Évolution", "Méga Stone", "Exploration", "Clé", "Récompense", "Autre"];
     const categoryOptions = categories.map(category => `<option value="${escapeHtml(category)}"${item.Categorie === category ? " selected" : ""}>${escapeHtml(category)}</option>`).join("");
     const effectRows = renderCreatorItemEffectRows(item.Effets || []);
 
