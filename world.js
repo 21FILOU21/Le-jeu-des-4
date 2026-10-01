@@ -580,9 +580,61 @@ function openWorldOptionsMenu() {
     if (typeof closeSaveMenu === "function") closeSaveMenu();
     if (typeof closeSettingsMenu === "function") closeSettingsMenu();
     if (typeof closeDevMenu === "function") closeDevMenu();
+    closeWorldPlayerStats();
 
     const menu = document.getElementById("world-options-menu");
     if (menu) menu.classList.remove("hidden");
+}
+
+function closeWorldPlayerStats() {
+    const modal = document.getElementById("world-player-stats");
+    if (modal) modal.classList.add("hidden");
+}
+
+function renderWorldPlayerStats() {
+    const container = document.getElementById("world-player-stats-body");
+    if (!container) return;
+
+    const hero = state && state.hero;
+    if (!hero) {
+        container.innerHTML = "<p>Aucun personnage actif.</p>";
+        return;
+    }
+
+    const rows = Object.entries(hero)
+        .filter(([key, value]) => value !== undefined && value !== null && typeof value !== "object")
+        .map(([key, value]) => {
+            const label = key.replace(/([A-Z])/g, " $1").replace(/^./, char => char.toUpperCase());
+            return `<div class="world-player-stat"><span>${escapeHtml(label)}</span><strong>${escapeHtml(String(value))}</strong></div>`;
+        })
+        .join("");
+
+    const derived = [
+        ["Niveau", String(globalState?.playerLevel ?? state.playerLevel ?? 1)],
+        ["PV actuels", String(state.playerHp ?? 0)],
+        ["PV maximum", String(state.playerMaxHp ?? hero.Vie ?? 0)],
+        ["Énergie actuelle", String(state.playerEnergy ?? 0)],
+        ["Énergie maximum", String(state.playerMaxEnergy ?? hero.MaxEnergie ?? 0)],
+        ["Puissance effective", String(typeof getPlayerPower === "function" ? getPlayerPower() : hero.PuissanceBase ?? 0)],
+        ["Armure effective", String(typeof getPlayerArmor === "function" ? getPlayerArmor() : hero.Armure ?? 0)],
+        ["Vitesse effective", String(typeof getPlayerSpeed === "function" ? getPlayerSpeed() : hero.Vitesse ?? 0)],
+        ["XP", String(globalState?.playerXp ?? state.playerXp ?? 0)],
+        ["XP avant niveau suivant", String(globalState?.playerXpToNext ?? state.playerXpToNext ?? 0)]
+    ];
+
+    const derivedHtml = derived.map(([label, value]) =>
+        `<div class="world-player-stat world-player-stat-derived"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`
+    ).join("");
+
+    container.innerHTML = `<div class="world-player-stat-section"><h3>Statistiques actives</h3>${derivedHtml}</div><div class="world-player-stat-section"><h3>Données du personnage</h3>${rows || "<p>Aucune donnée disponible.</p>"}</div>`;
+}
+
+function openWorldPlayerStats() {
+    if (!isWorldScreenActive()) return;
+    closeWorldOptionsMenu();
+    renderWorldPlayerStats();
+    const modal = document.getElementById("world-player-stats");
+    if (modal) modal.classList.remove("hidden");
 }
 
 /* ============================================================
